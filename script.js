@@ -2,16 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageInput = document.getElementById('messageInput');
     const sendBtn = document.getElementById('sendBtn');
     const messages = document.querySelector('.messages');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const chatItems = document.querySelectorAll('.chat-item');
     const voiceCallBtn = document.getElementById('voiceCallBtn');
     const videoCallBtn = document.getElementById('videoCallBtn');
-    const menuBtn = document.getElementById('menuBtn');
-    const sidebar = document.querySelector('.sidebar');
 
     // Initialize Lucide icons
     lucide.createIcons();
 
     // Generate avatars
     generateAvatars();
+
+    // Populate mobile menu
+    populateMobileMenu();
 
     sendBtn.addEventListener('click', sendMessage);
     messageInput.addEventListener('keypress', (e) => {
@@ -20,8 +24,31 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    chatItems.forEach(item => {
+        item.addEventListener('click', () => {
+            chatItems.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+        });
+    });
+
     menuBtn.addEventListener('click', () => {
-        sidebar.classList.toggle('show-chat-list');
+        mobileMenu.classList.toggle('open');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (!mobileMenu.contains(e.target) && !menuBtn.contains(e.target)) {
+            mobileMenu.classList.remove('open');
+        }
+    });
+
+    // Voice call button
+    voiceCallBtn.addEventListener('click', () => {
+        alert('Voice call feature is not implemented yet.');
+    });
+
+    // Video call button
+    videoCallBtn.addEventListener('click', () => {
+        alert('Video call feature is not implemented yet.');
     });
 
     function sendMessage() {
@@ -61,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = avatar.getAttribute('data-name');
             const initials = getInitials(name);
             avatar.textContent = initials;
-            avatar.style.backgroundColor = getAvatarColor(name);
         });
     }
 
@@ -74,29 +100,19 @@ document.addEventListener('DOMContentLoaded', () => {
             .slice(0, 2);
     }
 
-    // function getInitials(name) {
-    //     return name.toUpperCase().slice(0, 1);
-    // }
-
-    function getAvatarColor(name) {
-        const colors = [
-            '#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e',
-            '#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50',
-            '#f1c40f', '#e67e22', '#e74c3c', '#ecf0f1', '#95a5a6',
-            '#f39c12', '#d35400', '#c0392b', '#bdc3c7', '#7f8c8d'
-        ];
-        let hash = 0;
-        for (let i = 0; i < name.length; i++) {
-            hash = name.charCodeAt(i) + ((hash << 5) - hash);
-        }
-        return colors[Math.abs(hash) % colors.length];
+    function populateMobileMenu() {
+        const mobileChatList = document.querySelector('.mobile-chat-list');
+        const chatListItems = document.querySelectorAll('.chat-list .chat-item');
+        
+        
+        chatListItems.forEach(item => {
+            const clone = item.cloneNode(true);
+            clone.addEventListener('click', () => {
+                mobileChatList.querySelectorAll('.chat-item').forEach(i => i.classList.remove('active'));
+                clone.classList.add('active');                
+                mobileMenu.classList.remove('open');
+            });
+            mobileChatList.appendChild(clone);
+        });
     }
-
-    voiceCallBtn.addEventListener('click', () => {
-        alert('Voice call feature not implemented');
-    });
-
-    videoCallBtn.addEventListener('click', () => {
-        alert('Video call feature not implemented');
-    });
 });

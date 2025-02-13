@@ -8,59 +8,62 @@
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-    <div class="chat-container">
+    <div class="app-container">        
         <div class="sidebar">
-            <div class="user-profile">
+            <div class="sidebar-header">
                 <div class="avatar" data-name="John Doe"></div>
                 <span>John Doe</span>
             </div>
-            <button id="menuBtn" class="menu-btn">
-                <i data-lucide="menu"></i>
-            </button>
             <div class="chat-list">
                 <div class="chat-item active">
-                    <div class="avatar" data-name="Alice"></div>
+                    <div class="avatar purple" data-name="Alice"></div>
                     <div class="chat-info">
-                        <span class="chat-name">Alice</span>
-                        <!-- <span class="chat-preview">Hey, how are you?</span> -->
+                        <div class="chat-name">Alice</div>
+                        <div class="chat-preview">Hey, how are you?</div>
+                    </div>
+                </div>
+                <div class="chat-item">
+                    <div class="avatar" data-name="Bob Smith"></div>
+                    <div class="chat-info">
+                        <div class="chat-name">Bob Smith</div>
+                        <div class="chat-preview">Meeting at 3 PM</div>
                     </div>
                 </div>
                 <div class="chat-item">
                     <div class="avatar" data-name="Work Group"></div>
                     <div class="chat-info">
-                        <span class="chat-name">Work Group</span>
-                        <!-- <span class="chat-preview">Bob: Meeting at 3 PM</span> -->
-                    </div>
-                </div>
-                <div class="chat-item">
-                    <div class="avatar" data-name="Charlie"></div>
-                    <div class="chat-info">
-                        <span class="chat-name">Charlie</span>
-                        <!-- <span class="chat-preview">Lunch tomorrow?</span> -->
-                    </div>
-                </div>
-                <div class="chat-item">
-                    <div class="avatar" data-name="Family Group"></div>
-                    <div class="chat-info">
-                        <span class="chat-name">Family Group</span>
-                        <!-- <span class="chat-preview">Mom: Don't forget the party on Saturday!</span> -->
+                        <div class="chat-name">Work Group</div>
+                        <div class="chat-preview">New project update</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="chat-area">
+
+        <div class="chat-container">
             <div class="chat-header">
-                <div class="avatar" data-name="Alice"></div>
-                <span>Alice</span>
-                <div class="call-actions">
-                    <button class="call-btn" id="voiceCallBtn">
-                        <i data-lucide="phone"></i>
-                    </button>
-                    <button class="call-btn" id="videoCallBtn">
-                        <i data-lucide="video"></i>
+                <div class="header-content">
+                    <div class="mobile-only">
+                        <div class="avatar" data-name="John Doe"></div>
+                    </div>
+                    <span class="header-title mobile-only">John Doe</span>
+                    <button class="menu-btn mobile-only" id="menuBtn">
+                        <i data-lucide="menu"></i>
                     </button>
                 </div>
+                <div class="active-chat">
+                    <div class="avatar purple" data-name="Alice"></div>
+                    <span class="contact-name">Alice</span>
+                    <div class="call-actions">
+                        <button class="call-btn" id="voiceCallBtn">
+                            <i data-lucide="phone"></i>
+                        </button>
+                        <button class="call-btn" id="videoCallBtn">
+                            <i data-lucide="video"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
+
             <div class="messages">
                 <div class="message received">
                     <p>Hey, how are you?</p>
@@ -78,16 +81,22 @@
                     <p>Looking forward to it. Shall we meet at the usual place?</p>
                     <span class="timestamp">10:33 AM</span>
                 </div>
-                <div class="message received">
-                    <p>Sounds perfect. See you at 3 PM!</p>
-                    <span class="timestamp">10:34 AM</span>
-                </div>
             </div>
+
             <div class="message-input">
                 <input type="text" placeholder="Type a message..." id="messageInput">
                 <button id="sendBtn">
                     <i data-lucide="send"></i>
                 </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-header">
+                <div class="avatar" data-name="John Doe"></div>
+                <span>John Doe</span>
+            </div>
+            <div class="mobile-chat-list">
             </div>
         </div>
     </div>
