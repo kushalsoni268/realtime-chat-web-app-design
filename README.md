@@ -1,6 +1,6 @@
-# Realtime Chat Web App
+# Realtime Chat Web App Design
 
-This project is a Realtime Chat Web Application, similar to WhatsApp, built to deliver fast, secure, and efficient messaging. It allows users to communicate seamlessly in real-time, making it ideal for connecting people instantly.
+This project is a design for Realtime Chat Web Application, similar to WhatsApp, built to deliver fast, secure, and efficient messaging. It allows users to communicate seamlessly in real-time, making it ideal for connecting people instantly.
 
 ## 📋 Table of Contents
 
@@ -9,7 +9,7 @@ This project is a Realtime Chat Web Application, similar to WhatsApp, built to d
 
 ##  :beginner: About
 
-This Realtime Chat Web App enables instant messaging between users with features inspired by modern messaging platforms like WhatsApp. The app is built using robust web technologies and supports the following key features:
+This Realtime Chat Web App design enables instant messaging between users with features inspired by modern messaging platforms like WhatsApp. The app is built using robust web technologies and supports the following key features:
 
 - **Real-time Communication:** Messages are delivered instantly with real-time updates using WebSocket or similar protocols.
 - **User Authentication:** Secure login and registration with unique user identification.
@@ -18,7 +18,7 @@ This Realtime Chat Web App enables instant messaging between users with features
 - **Responsive UI:** Fully responsive design optimized for desktop and mobile devices.
 - **Notifications:** Get real-time notifications for new messages.
 
-This project is ideal for learning how to build real-time web applications, focusing on both backend and frontend development, and understanding the architecture of a scalable chat application.
+This project is ideal for learning how to design a real-time web applications, focusing on both backend and frontend development, and understanding the architecture of a scalable chat application.
 
 ## 🛠️ Tech Stack
 
